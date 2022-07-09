@@ -5,18 +5,18 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './ContactForm.module.scss';
 
 class ContactForm extends Component {
-  // PropTypes как статическое свойство
+  
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
   };
 
-  // Стейт формы
+  
   state = {
     name: '',
     number: '',
   };
 
-  // Метод, наблюдающий за инпутами и записывающий в стейт их значения
+  
   hanldeChange = event => {
     const { name, value } = event.currentTarget;
 
@@ -25,7 +25,7 @@ class ContactForm extends Component {
     });
   };
 
-  // Метод на отправке формы. Формирует из стейта контакт и передает во внешний метод
+  
   hanldeSubmit = event => {
     event.preventDefault();
 
@@ -35,12 +35,12 @@ class ContactForm extends Component {
       number: this.state.number,
     };
 
-    this.props.onSubmit(contact); // Внешний метод в пропсах класса
+    this.props.onSubmit(contact); 
 
     this.resetForm();
   };
 
-  // Сброс полей формы (после отправки)
+  
   resetForm = () => {
     this.setState({
       id: '',
@@ -58,8 +58,8 @@ class ContactForm extends Component {
             type="text"
             name="name"
             className={styles.input}
-            value={this.state.name} // Пишем значение в стейт
-            onChange={this.hanldeChange} // Наблюдающий метод
+            value={this.state.name} 
+            onChange={this.hanldeChange} 
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
@@ -71,8 +71,8 @@ class ContactForm extends Component {
             type="tel"
             name="number"
             className={styles.input}
-            value={this.state.number} // Пишем значение в стейт
-            onChange={this.hanldeChange} // Наблюдающий метод
+            value={this.state.number} 
+            onChange={this.hanldeChange} 
             pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
             title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
             required

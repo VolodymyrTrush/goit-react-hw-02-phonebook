@@ -17,9 +17,9 @@ class App extends Component {
     filter: '',
   };
 
-  // Добавляет контакт (желательно сократить или вынести)
+  
   addContact = newContact => {
-    // Проверка на дубликат
+    
     const duplicateName = this.state.contacts.find(
       contact => contact.name === newContact.name,
     );
@@ -34,12 +34,12 @@ class App extends Component {
     }));
   };
 
-  // Следит за полем фильтрации и пишет в стейт
+  
   changeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
   };
 
-  // Фильтрует и возвращает результат фильтра
+  
   filterContacts = () => {
     const { contacts, filter } = this.state;
 
@@ -50,7 +50,7 @@ class App extends Component {
     );
   };
 
-  // Удаляет контакт
+  
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
